@@ -1,5 +1,15 @@
 FROM drtools/scientific
 
+USER root
+RUN curl -L https://github.com/rilian-la-te/musl-locales/archive/master.tar.gz | tar xz && \
+    cd musl-locales-master/ && \
+    apk add --no-cache --virtual .build-dependencies cmake make gcc musl-dev gettext-dev && \
+    cmake . && make && make install
+USER drtools
+
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
 RUN conda install -y lz4 psutil tornado && \
     conda install -y -c conda-forge \
       pandas \
