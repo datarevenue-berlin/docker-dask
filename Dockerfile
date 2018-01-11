@@ -19,7 +19,7 @@ RUN conda install -y lz4 psutil tornado && \
     conda clean -tipsy && \
     rm -rf /opt/conda/pkgs/*
 
-ARG SPARSITY_VERSION=0.14
+ARG SPARSITY_VERSION=0.17.0
 
 RUN mkdir -p /home/drtools/.build/ && \
     cd /home/drtools/.build/ && \
