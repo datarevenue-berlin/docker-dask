@@ -7,9 +7,6 @@ RUN curl -L https://github.com/rilian-la-te/musl-locales/archive/master.tar.gz |
     cmake . && make && make install
 USER drtools
 
-ENV LC_ALL=C.UTF-8
-ENV LANG=C.UTF-8
-
 RUN conda install -y lz4 psutil tornado && \
     conda install -y -c conda-forge \
       pandas \
