@@ -19,9 +19,3 @@ RUN conda install -y lz4 psutil tornado && \
     conda clean -tipsy && \
     rm -rf /opt/conda/pkgs/*
 
-ARG SPARSITY_VERSION=0.17.0
-
-RUN mkdir -p /home/drtools/.build/ && \
-    cd /home/drtools/.build/ && \
-    curl -L "https://github.com/datarevenue-berlin/sparsity/archive/v${SPARSITY_VERSION}.tar.gz" | tar xz && \
-    pip install --no-cache-dir -e "sparsity-${SPARSITY_VERSION}"
