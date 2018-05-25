@@ -7,8 +7,10 @@ RUN curl -L https://github.com/rilian-la-te/musl-locales/archive/master.tar.gz |
     cmake . && make && make install
 USER drtools
 
-RUN conda install -y lz4 psutil tornado && \
-    conda install -y -c conda-forge \
+RUN conda install -y \
+      lz4 \
+      psutil \
+      tornado  \
       pandas \
       dask \
       distributed \
